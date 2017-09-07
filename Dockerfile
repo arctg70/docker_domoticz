@@ -47,7 +47,8 @@ RUN apk add --no-cache git \
 	 udev eudev-dev \
 	 python3-dev \
 	 linux-headers && \
-	 cp /usr/share/zoneinfo/Europe/Paris /etc/localtime && \
+	 cp /usr/share/zoneinfo/${TZ} /etc/localtime && \
+	 echo ${TZ} >  /etc/timezone && \ 
 	 git clone --depth 2 https://github.com/OpenZWave/open-zwave.git /src/open-zwave && \
 	 cd /src/open-zwave && \
 	 make && \
@@ -59,8 +60,6 @@ RUN apk add --no-cache git \
 	 make && \
 	 rm -rf /src/domoticz/.git && \
 	 rm -rf /src/open-zwave/.git && \
-	 cp /usr/share/zoneinfo/${TZ} /etc/localtime && \
-	 echo ${TZ} >  /etc/timezone && \
 	 apk del git tzdata cmake linux-headers libusb-dev zlib-dev openssl-dev boost-dev sqlite-dev build-base eudev-dev coreutils curl-dev python3-dev
 
 VOLUME /config
