@@ -22,7 +22,7 @@ docker pull cgatay/domoticz:$VERSION
 **Run container**
 
 ```
-docker run -d -p 8080:8080 --name=<container name> -v <path for config files>:/config -v /etc/localtime:/etc/localtime:ro --device=<device_id> cgatay/domoticz:$VERSION
+docker run -d -p 8080:8080 --name=<container name> -v <path for config files>:/config -e TZ=timezone --device=<device_id> cgatay/domoticz:$VERSION
 ```
 
 Please replace all user variables in the above command defined by <> with the correct values (you can have several USB devices attached, just add other `--device=<device_id>`).
