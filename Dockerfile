@@ -28,6 +28,8 @@ LABEL org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.license="GPLv3" \
       org.label-schema.build-date=$BUILD_DATE
 
+ENV TZ=Europe/London
+
 RUN apk add --no-cache git \
 	 git \
 	 tzdata \
@@ -57,6 +59,8 @@ RUN apk add --no-cache git \
 	 make && \
 	 rm -rf /src/domoticz/.git && \
 	 rm -rf /src/open-zwave/.git && \
+	 cp /usr/share/zoneinfo/${TZ} /etc/localtime && \
+	 echo ${TZ} >  /etc/timezone && \
 	 apk del git tzdata cmake linux-headers libusb-dev zlib-dev openssl-dev boost-dev sqlite-dev build-base eudev-dev coreutils curl-dev python3-dev
 
 VOLUME /config
