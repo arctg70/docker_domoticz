@@ -28,7 +28,7 @@ LABEL org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.license="GPLv3" \
       org.label-schema.build-date=$BUILD_DATE
 
-ENV TZ=Europe/London
+ENV TZ=Asia/Shanghai
 
 RUN apk add --no-cache git \
 	 git \
