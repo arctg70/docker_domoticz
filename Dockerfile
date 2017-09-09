@@ -28,7 +28,7 @@ LABEL org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.license="GPLv3" \
       org.label-schema.build-date=$BUILD_DATE
 
-ENV TZ=Asia/Shanghai
+ENV TZ='Asia/Shanghai'
 
 RUN apk add --no-cache git \
 	 git \
@@ -42,7 +42,7 @@ RUN apk add --no-cache git \
 	 sqlite sqlite-dev \
 	 curl libcurl curl-dev \
 	 libusb libusb-dev \
-	 coreutils \
+	 coreutils libgdbm-dev \
 	 zlib zlib-dev \
 	 udev eudev-dev \
 	 python3-dev \
