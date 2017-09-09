@@ -42,13 +42,13 @@ RUN apk add --no-cache git \
 	 sqlite sqlite-dev \
 	 curl libcurl curl-dev \
 	 libusb libusb-dev \
-	 coreutils libgdbm-dev \
+	 coreutils  \
 	 zlib zlib-dev \
 	 udev eudev-dev \
 	 python3-dev \
 	 linux-headers && \
 	 cp /usr/share/zoneinfo/${TZ} /etc/localtime && \
-	 echo ${TZ} >  /etc/timezone && \ 
+	 echo "${TZ}" >  /etc/timezone && \ 
 	 git clone --depth 2 https://github.com/OpenZWave/open-zwave.git /src/open-zwave && \
 	 cd /src/open-zwave && \
 	 make && \
