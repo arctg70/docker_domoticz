@@ -45,7 +45,7 @@ RUN apk add --no-cache git \
 	 coreutils  \
 	 zlib zlib-dev \
 	 udev eudev-dev \
-	 python3-dev \
+	 python3 python3-dev \
 	 linux-headers && \
 	 cp /usr/share/zoneinfo/${TZ} /etc/localtime && \
 	 echo "${TZ}" >  /etc/timezone && \ 
